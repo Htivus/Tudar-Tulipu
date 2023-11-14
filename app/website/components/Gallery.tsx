@@ -24,7 +24,7 @@ export const Gallery = () => {
     }
     if (!inView1) {
       animation1.start({
-        x: "-100vw",
+        x: "-50vw",
       });
     }
     if (inView2) {
@@ -32,15 +32,15 @@ export const Gallery = () => {
         x: 0,
         transition: {
           type: "spring",
-          duration: 3,
+          duration: 2,
           bounce: 0.3,
-          delay: 0.5,
+          // delay: 0.5,
         },
       });
     }
     if (!inView2) {
       animation2.start({
-        x: "100vw",
+        x: "50vw",
       });
     }
 
