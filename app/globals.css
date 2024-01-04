@@ -16,6 +16,55 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+/* styles/FireAnimation.module.css */
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+.effect{
+animation:profile 8s ease-in-out infinite 1s;
+}
+@keyframes profile{
+  0%{
+    border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+  }
+  50%{
+    border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;
+  }
+  100%{
+    border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+    
+  }
+}
+
+html {
+  height: 100%;
+  background: radial-gradient(ellipse at bottom, #090b0d 0%, #0b0c12 100%);
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+
+html::-webkit-scrollbar {
+  width: 10px; 
+}
+
+html::-webkit-scrollbar-track {
+background-color: black;
+}
+
+html::-webkit-scrollbar-thumb {
+background: #4e4e4e;
+border-radius: 25px;
+}
+
 
 .card {
   box-sizing: border-box;
@@ -62,13 +111,13 @@
 
 :root {
   font-size: 18px;
-  --color-text: #fff;
+  --color-text: #c50404;
   --color-bg: #131417;
   --color-link: #aaa;
-  --color-link-hover: #fff;
+  --color-link-hover: #c50404;
   --color-label: #adadad;
   --color-text-alt: #575757;
-  --color-caption: #fff;
+  --color-caption: #c50404;
 }
 .gallery-wrap {
   position: relative;
@@ -161,4 +210,47 @@
 .gallery--switch.gallery--row .gallery__item--m,
 .gallery--switch.gallery--row .gallery__item--l {
   height: var(--item-height);
+}
+.hero-background{
+  background-color: #090b0d;
+  padding: 20px 20px ;
+}
+.background-image{
+  object-fit: cover;
+  min-width: 100%;
+  height: 100vh;
+}
+.club-heading{
+  color: #afa18f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.text-club{
+  color: #afa18f;
+}
+.container{
+  display: grid;
+  grid-template-columns: auto auto;
+  min-width: 100vw;
+  
+}
+.container .content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.container .club-image{
+  width: 50%;
+ 
+}
+
+.cursor{
+  width: 50px;
+  height: 50px;
+  background-color: #afa18f;
+  position: fixed;
+  border-radius: 50%;
 }
