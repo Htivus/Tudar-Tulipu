@@ -47,8 +47,6 @@ export const Gallery = () => {
     console.log("useEffect", inView1);
   }, [inView1, inView2]);
   return (
-
-
     <div className="mt-20">
       <div ref={ref1}>
         <motion.div
@@ -62,18 +60,12 @@ export const Gallery = () => {
             width={550}
             height={750}
           ></Image>
-
-
-
           <div className="flex-col justify-center items-center h-full my-auto mr-5">
             <h1 className="text-2xl sm:text-xl md:text-3xl">About Us</h1>
             <h2 className="max-w-lg overflow-auto text-xl sm:text-sm md:text-xl">
               Glimpses of images danced across the screen, each frame telling a
               story untold, a fleeting narrative captured in the briefest of
               visual moments.
-
-
-
             </h2>
           </div>
         </motion.div>
@@ -90,18 +82,14 @@ export const Gallery = () => {
                 height={750}
               ></Image>
             </div>
-
-
             <div className="flex-col justify-center items-center h-full my-auto ml-5 ">
               <h1 className="lg:text-4xl text-2xl  sm:text-xl md:text-3xl">
                 About Us
               </h1>
-
               <h2 className="max-w-lg overflow-auto text-sm sm:text-sm md:text-xl">
                 In the soft glow of twilight, the photographer managed to freeze
                 time, offering mere glimpses of images that held a thousand
                 emotions within their silent frames.
-
               </h2>
             </div>
           </div>

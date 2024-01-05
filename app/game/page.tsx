@@ -7,9 +7,9 @@ import Homepage from './components/Homepage'
 const page = () => {
   return (
     <>
-    {/* <Navbar />
-    <Matchboard/>
-    <Keyboard/> */}
+    <Navbar />
+    {/* <Matchboard/>
+    <Keyboard/> */ }
     <Homepage/>
     </>
   )
