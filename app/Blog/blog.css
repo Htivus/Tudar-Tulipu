@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: white;
+}
+
+.gradient-class {
+  @apply justify-end items-end w-full h-1/3 bg-gradient-to-b from-transparent to-black/50 rounded-b-2xl gap-2 absolute bottom-0 right-0 font-semibold text-lg text-white p-4;
+}
+
+.modal_wrapper {
+  @apply flex justify-start items-center flex-col absolute h-[95%] w-full bottom-0 bg-white rounded-t-3xl lg:px-40 px-8 pt-14 pb-72 overflow-auto;
+}
+
+.form_image-container {
+  @apply w-full lg:min-h-[400px] min-h-[200px] relative;
+}
+
+.form_image-label {
+  @apply z-10 text-center w-full h-full p-20 text-gray-100 border-2 border-gray-50 border-dashed;
+}
+
+.form_image-input {
+  @apply absolute z-30 w-full opacity-0 cursor-pointer;
+}
+
+.flexStart {
+  @apply flex items-center justify-start;
+}
+.flexCenter {
+  @apply flex justify-center items-center;
+}
+
+.form {
+  @apply flex-col w-full lg:pt-24 pt-12 gap-10 text-lg max-w-5xl mx-auto;
+}

@@ -13,13 +13,6 @@ const Homepage: React.FC = async () => {
   console.log(session);
   return (
     <div className="h-screen w-full  bg-blue-100 m-0">
-      <div className="flex justify-end p-4 ">
-        {session?.user ? (
-          <ProfileMenu session={session} />
-        ) : (
-          <h2>Please Login</h2>
-        )}{" "}
-      </div>
       <div className="flex flex-col gap-5 items-center justify-center overflow-hidden ">
         <div className="">
           <img className="w-36" src="src/logofinal22.png" alt="" />

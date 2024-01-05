@@ -2,9 +2,17 @@
 :root{
     --flag: 0;
 }
+.navbar-bg{
+    /* From https://css.glass */
+background: rgba(255, 255, 255, 0.21);
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(6.7px);
+-webkit-backdrop-filter: blur(6.7px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+}
 .alink{
     color: white;
-    font-size: 1.06rem ;
+    font-size: 1.00rem ;
     line-height: 1.8;
     letter-spacing: 0.02rem;
     font-family: 'Tilt Warp', sans-serif;

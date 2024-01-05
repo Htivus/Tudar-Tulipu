@@ -1,8 +1,10 @@
 import React from 'react'
-
+import Jumbled from "./components/Jumbled"
 const page = () => {
   return (
-    <div>page</div>
+    <>
+    <Jumbled />
+    </>
   )
 }
 

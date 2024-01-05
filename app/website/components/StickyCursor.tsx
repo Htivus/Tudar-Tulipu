@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react'
 import { motion ,useMotionValue,useSpring} from 'framer-motion'
 const StickyCursor = () => {
+  
     const mouse={
         x:useMotionValue(0),
         y:useMotionValue(0),
@@ -10,6 +11,7 @@ const StickyCursor = () => {
         const {clientX, clientY} = e;
         mouse.x.set(clientX-25)
         mouse.y.set(clientY-25);
+        
     }
     const smoothMouse =  {
         x:useSpring(mouse.x),
