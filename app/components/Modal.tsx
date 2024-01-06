@@ -28,7 +28,7 @@ const Modal = ({ children }: { children: ReactNode }) => {
         onClick={onDismiss}
         className="absolute top-4 right-8"
       >
-        <Image src="/close.svg" width={17} height={17} alt="close" />
+        <Image src="/events/close.svg" width={17} height={17} alt="close" />
       </button>
       <div ref={wrapper} className="modal_wrapper">
         {children}

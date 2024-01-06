@@ -103,10 +103,10 @@ const ProjectForm = ({ type, session, project }: Props) => {
       onSubmit={handleFormSubmit}
       className="flex-col justify-center items-center"
     >
-      <div className="flexStart ">
+      <div className="flex justify-center items-center p-10 ">
         <label
           htmlFor="poster"
-          className="flex justify-center items-center border-2 p-5 text-2xl "
+          className="flex justify-center items-center border-2 p-20 text-2xl "
         >
           {!form.image && "Choose a poster for your project"}
         </label>
@@ -121,10 +121,10 @@ const ProjectForm = ({ type, session, project }: Props) => {
         {form.image && (
           <Image
             src={form?.image}
-            className="sm:p-10 z-20"
+            className="sm:p-10 z-20 absolute"
             alt="image"
-            width={100}
-            height={100}
+            width={250}
+            height={250}
           />
         )}
       </div>
@@ -144,6 +144,12 @@ const ProjectForm = ({ type, session, project }: Props) => {
         setState={(value) => handleStateChange("description", value)}
       />
 
+      <div className="flex-col justify-start gap-3 mt-4">
+        <label htmlFor="" className=" text-2xl ">
+          Event Date
+        </label>
+        <input type="date" className="flex justify-start mt-4" />
+      </div>
       <CustomMenu
         title="Category"
         state={form.category}
@@ -151,8 +157,13 @@ const ProjectForm = ({ type, session, project }: Props) => {
         setState={(value) => handleStateChange("category", value)}
       />
 
-      <div className="flexStart w-full">
-        <button type="submit">Create</button>
+      <div className="flex justify-center items-center w-full mt-4">
+        <button
+          className="bg-purple-400 p-4 rounded-lg text-white"
+          type="submit"
+        >
+          Create
+        </button>
       </div>
     </form>
   );
