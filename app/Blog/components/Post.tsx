@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-const Post = ({ id, title, description, image }: any) => {
+const Post = ({ id, title, description, image, user, avatarUrl }: any) => {
   return (
     <div>
       <Image
@@ -15,13 +15,13 @@ const Post = ({ id, title, description, image }: any) => {
         <Link href="/">
           <div className="flex justify-center items-center gap-3">
             <Image
-              src="/events/img1 (1).jpg"
+              src={avatarUrl}
               className="rounded-full"
               alt="session"
               width={20}
               height={20}
             ></Image>
-            <p className="font-semibold">Amith Jagannath</p>
+            <p className="font-semibold">{user}</p>
           </div>
         </Link>
 
@@ -39,7 +39,9 @@ const Post = ({ id, title, description, image }: any) => {
       </div>
       <Link href="/">
         <div className="flex justify-center items-center mt-4">
-          <p className="text-2xl font-bold">Inaguaral Event</p>
+          <p className="text-2xl font-bold max-w-[400px] overflow-hidden overflow-ellipsis">
+            {title}
+          </p>
         </div>
       </Link>
     </div>

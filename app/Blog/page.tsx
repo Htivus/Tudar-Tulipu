@@ -4,72 +4,33 @@ import Link from "next/link";
 import Image from "next/image";
 import Post from "./components/Post";
 import Navbar from "@/app/website/components/Navbar";
-const page = () => {
+import { getAllPosts } from "@/libs/actions";
+import { PostInterface } from "@/common.types";
+type PostFormat = {
+  postCollection: {
+    edges: {
+      node: PostInterface;
+    }[];
+  };
+};
+const page = async () => {
+  const data = (await getAllPosts()) as PostFormat;
+  const posts = data?.postCollection?.edges || [];
+  console.log(posts);
   return (
     <div>
       {/* <Navbar /> */}
 
       <div className="flex h-screen items-center justify-center gap-20 m-5 flex-wrap">
-        <Post
-          title="First Event"
-          description="ftcvgdbheb gdvgdvgvd"
-          image="/events/img1 (1).jpg"
-        />
-        <Post
-          title="First Event"
-          description="ftcvgdbheb gdvgdvgvd"
-          image="/events/img1 (2).jpg"
-        />
-        <Post
-          title="First Event"
-          description="ftcvgdbheb gdvgdvgvd"
-          image="/events/img1 (3).jpg"
-        />
-        <Post
-          title="First Event"
-          description="ftcvgdbheb gdvgdvgvd"
-          image="/events/img1 (1).jpg"
-        />
-        <Post
-          title="First Event"
-          description="ftcvgdbheb gdvgdvgvd"
-          image="/events/img1 (2).jpg"
-        />
-        <Post
-          title="First Event"
-          description="ftcvgdbheb gdvgdvgvd"
-          image="/events/img1 (3).jpg"
-        />
-        <Post
-          title="First Event"
-          description="ftcvgdbheb gdvgdvgvd"
-          image="/events/img1 (1).jpg"
-        />
-        <Post
-          title="First Event"
-          description="ftcvgdbheb gdvgdvgvd"
-          image="/events/img1 (2).jpg"
-        />
-        <Post
-          title="First Event"
-          description="ftcvgdbheb gdvgdvgvd"
-          image="/events/img1 (3).jpg"
-        />
-        <Post
-          title="First Event"
-          description="ftcvgdbheb gdvgdvgvd"
-          image="/events/img1 (1).jpg"
-        />
-        <Post
-          title="First Event"
-          description="ftcvgdbheb gdvgdvgvd"
-          image="/events/img1 (2).jpg"
-        />
-        <Post
-          title="First Event"
-          description="ftcvgdbheb gdvgdvgvd"
-          image="/events/img1 (3).jpg"
-        />
+        {posts.map(({ node }: { node: PostInterface }) => (
+          <Post
+            title={node.title || ""}
+            description={node.description || ""}
+            image={node.image || ""}
+            user={node.createdBy.name || ""}
+            avatarUrl={node.createdBy.avatarUrl || ""}
+          />
+        ))}
       </div>
 
       <div className="flex justify-center items-center">

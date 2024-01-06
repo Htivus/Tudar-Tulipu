@@ -24,15 +24,15 @@ export type FormState = {
   title: string;
   description: string;
   image: string;
+  date: string;
   category: string;
 };
 
-export interface ProjectInterface {
+export interface PostInterface {
   title: string;
   description: string;
   image: string;
-  liveSiteUrl: string;
-  githubUrl: string;
+  date: string;
   category: string;
   id: string;
   createdBy: {
@@ -41,4 +41,12 @@ export interface ProjectInterface {
     avatarUrl: string;
     id: string;
   };
+}
+
+export interface PostForm {
+  title: string;
+  description: string;
+  image: string;
+  date: string;
+  category: string;
 }

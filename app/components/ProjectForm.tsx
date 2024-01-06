@@ -1,37 +1,24 @@
 "use client";
-
 import Image from "next/image";
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import "../Blog/blog.css";
 import FormField from "./FormField";
 import CustomMenu from "./CustomMenu";
-const categoryFilters = [
-  "Frontend",
-  "Backend",
-  "Full-Stack",
-  "Mobile",
-  "UI/UX",
-  "Game Dev",
-  "DevOps",
-  "Data Science",
-  "Machine Learning",
-  "Cybersecurity",
-  "Blockchain",
-  "E-commerce",
-  "Chatbots",
-];
+import { createPost } from "@/libs/actions";
+import { fetchToken } from "@/libs/actions";
+const categoryFilters = ["Workshop", "Quiz", "Fest"];
 // import {
 //   createNewProject,
 //   fetchToken,
 //   updateProject,
 // } from "../../libs/actions";
-import { FormState, ProjectInterface, SessionInterface } from "@/common.types";
+import { FormState, PostInterface, SessionInterface } from "@/common.types";
 
 type Props = {
   type: string;
   session: SessionInterface;
-  project?: ProjectInterface;
+  project?: PostInterface;
 };
 
 const ProjectForm = ({ type, session, project }: Props) => {
@@ -42,6 +29,7 @@ const ProjectForm = ({ type, session, project }: Props) => {
     title: project?.title || "",
     description: project?.description || "",
     image: project?.image || "",
+    date: project?.date || "",
     category: project?.category || "",
   });
 
@@ -74,28 +62,17 @@ const ProjectForm = ({ type, session, project }: Props) => {
   };
 
   const handleFormSubmit = async (e: FormEvent) => {
-    // e.preventDefault();
-    // setSubmitting(true);
-    // // const { token } = await fetchToken();
-    // try {
-    //   if (type === "create") {
-    //     await createNewProject(form, session?.user?.id, token);
-    //     console.log("yes");
-    //     router.push("/");
-    //   }
-    //   if (type === "edit") {
-    //     await updateProject(form, project?.id as string, token);
-    //     router.push("/");
-    //   }
-    // } catch (error) {
-    //   alert(
-    //     `Failed to ${
-    //       type === "create" ? "create" : "edit"
-    //     } a project. Since github and website link should be in https:www format`
-    //   );
-    // } finally {
-    //   setSubmitting(false);
-    // }
+    e.preventDefault();
+    setSubmitting(true);
+    try {
+      const { token } = await fetchToken();
+      console.log(token);
+      await createPost(form, session?.user?.id, token);
+      setSubmitting(false);
+      router.push("/");
+    } catch (error: any) {
+      console.log(error);
+    }
   };
 
   return (
@@ -148,7 +125,12 @@ const ProjectForm = ({ type, session, project }: Props) => {
         <label htmlFor="" className=" text-2xl ">
           Event Date
         </label>
-        <input type="date" className="flex justify-start mt-4" />
+        <input
+          id="date"
+          type="date"
+          className="flex justify-start mt-4"
+          onChange={(e) => handleStateChange("date", e.target.value)}
+        />
       </div>
       <CustomMenu
         title="Category"
@@ -159,10 +141,12 @@ const ProjectForm = ({ type, session, project }: Props) => {
 
       <div className="flex justify-center items-center w-full mt-4">
         <button
-          className="bg-purple-400 p-4 rounded-lg text-white"
+          className={` ${
+            submitting ? "bg-gray-500" : "bg-purple-500"
+          } p-4 rounded-lg text-white`}
           type="submit"
         >
-          Create
+          {submitting ? "Creating" : "Create"}{" "}
         </button>
       </div>
     </form>

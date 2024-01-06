@@ -38,8 +38,10 @@ type Post
       { allow: private, operations: [create, delete, update] }
     ]
   ) {
-  name: String!
+  title: String!
   description: String!
-  imageUrl: String!
-  likes: Int!
+  image: String!
+  date: String
+  category: String
+  createdBy: User!
 }
