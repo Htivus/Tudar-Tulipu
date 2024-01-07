@@ -1,7 +1,7 @@
 "use client"
 import React, { useRef } from "react";
 import Image from "next/image";
-
+import "./Hero.css"
 import { motion, useScroll, useTransform } from "framer-motion";
 const Hero = () => {
   const ref = useRef(null);
@@ -43,3 +43,4 @@ const Hero = () => {
 };
 
 export default Hero;
+

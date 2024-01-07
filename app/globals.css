@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/*
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -24,7 +24,9 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+    
 }
+
 
 .effect {
   animation: profile 8s ease-in-out infinite 1s;
@@ -40,6 +42,7 @@ body {
     border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
   }
 }
+
 
 html {
   height: 100%;
@@ -60,6 +63,7 @@ html::-webkit-scrollbar-thumb {
   background: #4e4e4e;
   border-radius: 25px;
 }
+
 
 .card {
   box-sizing: border-box;
@@ -86,13 +90,9 @@ html::-webkit-scrollbar-thumb {
   transform: scale(1.05);
 }
 
-.card:active {
-  transform: scale(0.95) rotateZ(1.7deg);
-}
 
-.flexCenter {
-  @apply flex justify-center items-center;
-}
+
+
 
 .flexBetween {
   @apply flex justify-between items-center;
@@ -102,8 +102,8 @@ html::-webkit-scrollbar-thumb {
   @apply flex items-center justify-start;
 }
 
-/*******************************************************************8 2nd section */
-/*
+
+
 :root {
   font-size: 18px;
   --color-text: #c50404;
@@ -251,4 +251,4 @@ html::-webkit-scrollbar-thumb {
   justify-content: center;
   align-items: center;
 }
-*/
+

@@ -1,36 +1,31 @@
 "use client";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import "./Events.css";
 
 const ShuffleHero = () => {
   return (
-    <section className="m-4 w-full px-8 py-12 grid grid-cols-1 md:grid-cols-2 items-center gap-8 max-w-6xl mx-auto">
+    <section className="bg-gray-900 z-30 m-4 w-full px-8 py-12 grid grid-cols-1 md:grid-cols-2 items-center gap-8 max-w-8xl mx-auto">
       <div className="p-6 flex-col  flex gap-4 ">
-        <h2 className="event-heading   text-5xl font-bold">
+        <h2 className="event-heading  text-5xl font-bold">
           Glimpses of our Events.
         </h2>
         <p className="events-info opacity-50">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum
           veritatis quia nihil at quisquam praesentium tenetur! Veritatis optio
           labore ab nemo explicabo debitis perferendis minus eum! Illum
-          doloremque vitae magnam!
+          doloremque vitae magnam quia nihil at quisquam praesentium tenetur!
+          Veritatis optio labore ab nemo explicabo debitis perferendis minus
+          eum! Illum doloremque vitae magnam!
         </p>
-      </div>
-      {/* <div>
-        <span className="block mb-4 text-xs md:text-sm text-indigo-500 font-medium">
-          Better every day
-        </span>
-        <h3 className="text-4xl md:text-6xl font-semibold">
-          Let's change it up a bit
-        </h3>
-        <p className="text-base md:text-lg text-slate-700 my-4 md:my-6">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam nobis in
-          error repellat voluptatibus ad.
-        </p>
-        <button className="bg-indigo-500 text-white font-medium py-2 px-4 rounded transition-all hover:bg-indigo-600 active:scale-95">
-          Find a class
+        <button className="fancy">
+          <span className="top-key"></span>
+          <span className="text">Know More</span>
+          <span className="bottom-key-1"></span>
+          <span className="bottom-key-2"></span>
         </button>
-      </div> */}
+      </div>
+
       <ShuffleGrid />
     </section>
   );
@@ -90,34 +85,6 @@ const squareData = [
     id: 9,
     src: "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
   },
-  //   {
-  //     id: 10,
-  //     src: "https://images.unsplash.com/photo-1610768764270-790fbec18178?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-  //   },
-  //   {
-  //     id: 11,
-  //     src: "https://images.unsplash.com/photo-1507034589631-9433cc6bc453?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=684&q=80",
-  //   },
-  //   {
-  //     id: 12,
-  //     src: "https://images.unsplash.com/photo-1533107862482-0e6974b06ec4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=882&q=80",
-  //   },
-  //   {
-  //     id: 13,
-  //     src: "https://images.unsplash.com/photo-1560089000-7433a4ebbd64?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-  //   },
-  //   {
-  //     id: 14,
-  //     src: "https://images.unsplash.com/photo-1517466787929-bc90951d0974?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80",
-  //   },
-  //   {
-  //     id: 15,
-  //     src: "https://images.unsplash.com/photo-1606244864456-8bee63fce472?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=681&q=80",
-  //   },
-  //   {
-  //     id: 16,
-  //     src: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1820&q=80",
-  //   },
 ];
 
 const generateSquares = () => {

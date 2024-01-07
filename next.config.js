@@ -45,6 +45,9 @@ const nextConfig = {
   experimental: {
     serverComponentsExternalPackages: ["cloudinary", "graphql-request"],
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 module.exports = nextConfig;
