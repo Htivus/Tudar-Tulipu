@@ -6,11 +6,17 @@ import { useState } from "react";
 import Image from "next/image";
 const NavLinks = [
   { href: "/", key: "Home", text: "Home" },
-  { href: "/", key: "Club", text: "Club" },
+  { href: "/website/Team", key: "Team", text: "Club Team" },
   { href: "/", key: "About", text: "About" },
+<<<<<<< HEAD
   { href: "/Events", key: "Events", text: "Events" },
   { href: "/Blogs", key: "Blog", text: "Blog" },
   { href: "/", key: "Contact", text: "Contact" },
+=======
+  { href: "/", key: "Events", text: "Events" },
+  { href: "/", key: "Blog", text: "Blog" },
+  { href: "/website/ContactUs", key: "Contact", text: "Contact" },
+>>>>>>> 37bbdde46f17d11662bebcdc54c9e3a06c1b70f9
 ];
 const Navbar = () => {
   const [flag, setflag] = useState(true);
