@@ -8,8 +8,8 @@ const NavLinks = [
   { href: "/", key: "Home", text: "Home" },
   { href: "/", key: "Club", text: "Club" },
   { href: "/", key: "About", text: "About" },
-  { href: "/", key: "Events", text: "Events" },
-  { href: "/Blog", key: "Blog", text: "Blog" },
+  { href: "/Events", key: "Events", text: "Events" },
+  { href: "/Blogs", key: "Blog", text: "Blog" },
   { href: "/", key: "Contact", text: "Contact" },
 ];
 const Navbar = () => {

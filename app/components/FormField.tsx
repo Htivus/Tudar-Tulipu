@@ -6,6 +6,7 @@ type Props = {
   placeholder: string;
   isTextArea?: boolean;
   setState: (value: string) => void;
+  required?: boolean;
 };
 const FormField = ({
   type,
@@ -14,6 +15,7 @@ const FormField = ({
   placeholder,
   isTextArea,
   setState,
+  required,
 }: Props) => {
   return (
     <div className="flex flex-col w-full gap-4">
@@ -28,7 +30,7 @@ const FormField = ({
           required
           className="p-5 rounded-md bg-gray-100"
           rows={4}
-          cols={50}
+          cols={55}
           onChange={(e) => setState(e.target.value)}
         />
       ) : (
@@ -36,7 +38,7 @@ const FormField = ({
           type="text"
           placeholder={placeholder}
           value={state}
-          required
+          required={required}
           className="p-5 rounded-md bg-gray-100"
           onChange={(e) => setState(e.target.value)}
         />

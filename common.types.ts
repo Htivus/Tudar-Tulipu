@@ -25,7 +25,7 @@ export type FormState = {
   description: string;
   image: string;
   date: string;
-  category: string;
+  reference: string;
 };
 
 export interface PostInterface {
@@ -33,7 +33,7 @@ export interface PostInterface {
   description: string;
   image: string;
   date: string;
-  category: string;
+  reference: string;
   id: string;
   createdBy: {
     name: string;
@@ -48,5 +48,5 @@ export interface PostForm {
   description: string;
   image: string;
   date: string;
-  category: string;
+  reference: string;
 }

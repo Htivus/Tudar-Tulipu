@@ -19,16 +19,18 @@ const page = async () => {
   console.log(posts);
   return (
     <div>
-      {/* <Navbar /> */}
+      <Navbar />
 
       <div className="flex h-screen items-center justify-center gap-20 m-5 flex-wrap">
         {posts.map(({ node }: { node: PostInterface }) => (
           <Post
+            id={node.id || ""}
             title={node.title || ""}
             description={node.description || ""}
             image={node.image || ""}
             user={node.createdBy.name || ""}
             avatarUrl={node.createdBy.avatarUrl || ""}
+            date={node.date || ""}
           />
         ))}
       </div>

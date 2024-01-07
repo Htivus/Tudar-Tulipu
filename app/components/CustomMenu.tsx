@@ -2,7 +2,7 @@
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import Image from "next/image";
-import "../Blog/blog.css";
+import "../Blogs/blog.css";
 type Props = {
   title: string;
   state: string;

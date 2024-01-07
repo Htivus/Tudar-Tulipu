@@ -41,7 +41,7 @@ type Post
   title: String!
   description: String!
   image: String!
-  date: String
-  category: String
+  date: String!
+  reference: String
   createdBy: User!
 }

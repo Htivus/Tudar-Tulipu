@@ -32,6 +32,7 @@ export const createPostMutation = `
 			description
 			date
 			image
+			reference
 			createdBy {
 				email
 				name
@@ -46,10 +47,10 @@ query PostCollection {
 	postCollection(first: 10) {
 	  edges {
 		node {
+		  id	 
 		  title
 		  description
 		  date
-		  category
 		  createdBy {
 			email
 			name
@@ -57,6 +58,24 @@ query PostCollection {
 		  }
 		  image
 		}
+	  }
+	}
+  }
+`;
+
+export const PostDetails = `
+
+query Post($id:ID!) {
+	post(by: {id:$id}) {
+	  title
+	  description
+	  image
+	  date
+	  createdBy {
+		name
+		email
+		avatarUrl
+		id
 	  }
 	}
   }

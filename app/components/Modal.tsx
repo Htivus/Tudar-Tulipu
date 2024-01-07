@@ -10,7 +10,7 @@ const Modal = ({ children }: { children: ReactNode }) => {
 
   const router = useRouter();
   const onDismiss = useCallback(() => {
-    router.push("/");
+    router.push("/Blogs");
   }, [router]);
   const handleClick = useCallback(
     (e: React.MouseEvent) => {

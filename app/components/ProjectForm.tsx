@@ -2,17 +2,11 @@
 import Image from "next/image";
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
-import "../Blog/blog.css";
+import "../Blogs/blog.css";
 import FormField from "./FormField";
-import CustomMenu from "./CustomMenu";
 import { createPost } from "@/libs/actions";
 import { fetchToken } from "@/libs/actions";
-const categoryFilters = ["Workshop", "Quiz", "Fest"];
-// import {
-//   createNewProject,
-//   fetchToken,
-//   updateProject,
-// } from "../../libs/actions";
+
 import { FormState, PostInterface, SessionInterface } from "@/common.types";
 
 type Props = {
@@ -30,7 +24,7 @@ const ProjectForm = ({ type, session, project }: Props) => {
     description: project?.description || "",
     image: project?.image || "",
     date: project?.date || "",
-    category: project?.category || "",
+    reference: project?.reference || "",
   });
 
   const handleStateChange = (fieldName: keyof FormState, value: string) => {
@@ -60,16 +54,29 @@ const ProjectForm = ({ type, session, project }: Props) => {
       handleStateChange("image", result);
     };
   };
-
+  const getCurrentDate = () => {
+    const currentDate = new Date();
+    const formattedDate = currentDate.toLocaleDateString("en-US", {
+      month: "short", // Abbreviated month name (e.g., "Jan")
+      day: "numeric", // Numeric day of the month (e.g., "3")
+      year: "numeric", // Full year (e.g., "2020")
+    });
+    return formattedDate;
+  };
   const handleFormSubmit = async (e: FormEvent) => {
     e.preventDefault();
+
+    form.date = getCurrentDate();
+
+    // console.log(form);
+
     setSubmitting(true);
     try {
       const { token } = await fetchToken();
       console.log(token);
       await createPost(form, session?.user?.id, token);
       setSubmitting(false);
-      router.push("/");
+      router.push("/Blogs");
     } catch (error: any) {
       console.log(error);
     }
@@ -78,9 +85,9 @@ const ProjectForm = ({ type, session, project }: Props) => {
   return (
     <form
       onSubmit={handleFormSubmit}
-      className="flex-col justify-center items-center"
+      className="flex-col justify-center items-center w-full lg:pt-24 pt-12 gap-10 text-lg max-w-5xl mx-auto "
     >
-      <div className="flex justify-center items-center p-10 ">
+      <div className="flex justify-center items-center p-10 form_image-container">
         <label
           htmlFor="poster"
           className="flex justify-center items-center border-2 p-20 text-2xl "
@@ -108,6 +115,7 @@ const ProjectForm = ({ type, session, project }: Props) => {
 
       <FormField
         title="Title"
+        required={true}
         state={form.title}
         placeholder="Flexibble"
         setState={(value) => handleStateChange("title", value)}
@@ -115,6 +123,7 @@ const ProjectForm = ({ type, session, project }: Props) => {
 
       <FormField
         title="Description"
+        required={true}
         state={form.description}
         placeholder="Showcase and discover remarkable developer projects."
         isTextArea
@@ -122,22 +131,14 @@ const ProjectForm = ({ type, session, project }: Props) => {
       />
 
       <div className="flex-col justify-start gap-3 mt-4">
-        <label htmlFor="" className=" text-2xl ">
-          Event Date
-        </label>
-        <input
-          id="date"
-          type="date"
-          className="flex justify-start mt-4"
-          onChange={(e) => handleStateChange("date", e.target.value)}
+        <FormField
+          title="Reference"
+          required={false}
+          state={form.reference}
+          placeholder="Optional"
+          setState={(value) => handleStateChange("reference", value)}
         />
       </div>
-      <CustomMenu
-        title="Category"
-        state={form.category}
-        filters={categoryFilters}
-        setState={(value) => handleStateChange("category", value)}
-      />
 
       <div className="flex justify-center items-center w-full mt-4">
         <button

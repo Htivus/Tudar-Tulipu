@@ -12,6 +12,7 @@ import { getUserQuery } from "./graphql";
 // import { ProjectForm, ProfileForm } from "@/common.types";
 // import { createProjectMutation } from "../graphql";
 // import ProfileForm from "@/app/components/ProfileForm";
+import { PostDetails } from "./graphql";
 import { createPostMutation } from "./graphql";
 import { postsQuery } from "./graphql";
 import { createUserMutation } from "./graphql";
@@ -97,4 +98,7 @@ export const createPost = async (
 
 export const getAllPosts = async () => {
   return makeGraphQLRequest(postsQuery);
+};
+export const getPostDetails = async (id: string) => {
+  return makeGraphQLRequest(PostDetails, { id });
 };
