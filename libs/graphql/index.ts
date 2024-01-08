@@ -80,3 +80,10 @@ query Post($id:ID!) {
 	}
   }
 `;
+
+export const PostDeleteById = `
+mutation PostDelete($id: ID!) {
+	postDelete(by: { id: $id }) {
+	  deletedId
+	}
+  }`;

@@ -4,6 +4,7 @@ import { getPostDetails } from "@/libs/actions";
 import Image from "next/image";
 import { getSession } from "next-auth/react";
 import { getCurrentUser } from "@/libs/session";
+import DeleteButton from "@/app/components/DeleteButton";
 interface PostInterface {
   title: string;
   description: string;
@@ -18,10 +19,9 @@ const page = async ({ params: { id } }: { params: { id: string } }) => {
     post?: PostInterface;
   };
   const session = await getCurrentUser();
-  console.log(session.user.id);
+
   console.log(result?.post?.createdBy.id);
-  console.log("Succes");
-  //   console.log(post);
+
   return (
     <Modal>
       <div className="flex-col justify-center items-center">
@@ -41,11 +41,13 @@ const page = async ({ params: { id } }: { params: { id: string } }) => {
             <p className="text-xl overflow-hidden max-w-[700px] mt-5">
               {result?.post?.description}
             </p>
-            {result?.post?.createdBy.id == session.user.id && (
-              <div className="flex justify-end mt-4 ">
-                <button className="bg-gray-500 rounded-md p-2"> Delete</button>
-              </div>
-            )}
+            {!session
+              ? " "
+              : result?.post?.createdBy.id == session.user.id && (
+                  <div className="flex justify-end mt-4 ">
+                    <DeleteButton id={id} />
+                  </div>
+                )}
           </div>
         </div>
       </div>

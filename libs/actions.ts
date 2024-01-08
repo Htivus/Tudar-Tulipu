@@ -16,6 +16,7 @@ import { PostDetails } from "./graphql";
 import { createPostMutation } from "./graphql";
 import { postsQuery } from "./graphql";
 import { createUserMutation } from "./graphql";
+import { PostDeleteById } from "./graphql";
 import { PostForm, SessionInterface } from "@/common.types";
 const isProduction = process.env.NODE_ENV === "production";
 const apiUrl = isProduction
@@ -101,4 +102,9 @@ export const getAllPosts = async () => {
 };
 export const getPostDetails = async (id: string) => {
   return makeGraphQLRequest(PostDetails, { id });
+};
+export const PostDelete = async (id: string, token: string) => {
+  console.log(id);
+  client.setHeader("Authorization", `Bearer ${token}`);
+  return makeGraphQLRequest(PostDeleteById, { id });
 };
