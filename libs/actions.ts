@@ -22,9 +22,7 @@ const isProduction = process.env.NODE_ENV === "production";
 const apiUrl = isProduction
   ? process.env.NEXT_PUBLIC_GRAFBASE_API_URL || ""
   : "http://127.0.0.1:4000/graphql";
-const apiKey = isProduction
-  ? "https://tudar-tulipu-main-amith-jagannath.grafbase.app/graphql" || ""
-  : "letmein";
+const apiKey = "https://dribble-master-amith-jagannath.grafbase.app/graphql";
 const serverUrl = isProduction
   ? process.env.NEXT_PUBLIC_SERVER_URL
   : "http://localhost:3000";
