@@ -12,8 +12,9 @@ extend schema
 type User @model @auth(rules: [{ allow: public, operations: [read] }]) {
   name: String! @length(min: 2, max: 20)
   email: String! @unique
-  avatarUrl: URL!
+  avatarUrl: String!
   performs: Perform
+  posts: Post
 }
 
 type Perform
@@ -27,5 +28,20 @@ type Perform
   score: Int!
   level: Int!
   streak: Int!
+  createdBy: User!
+}
+type Post
+  @model
+  @auth(
+    rules: [
+      { allow: public, operations: [read] }
+      { allow: private, operations: [create, delete, update] }
+    ]
+  ) {
+  title: String!
+  description: String!
+  image: String!
+  date: String!
+  reference: String
   createdBy: User!
 }

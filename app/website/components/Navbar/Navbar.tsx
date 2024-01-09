@@ -9,7 +9,7 @@ const NavLinks = [
   { href: "/website/Team", key: "Team", text: "Club Team" },
   { href: "/", key: "About", text: "About" },
   { href: "/", key: "Events", text: "Events" },
-  { href: "/", key: "Blog", text: "Blog" },
+  { href: "/Blogs", key: "Blog", text: "Blog" },
   { href: "/website/ContactUs", key: "Contact", text: "Contact" },
 ];
 const Navbar = () => {
@@ -36,19 +36,22 @@ const Navbar = () => {
       <div className="flex w-full">
         <a href="#" className="float-left ml-0">
           <span className=" whitespace-nowrap">
-            <Image src="/src/tudar.png" alt="Tudar" width={120} height={100}></Image>
+            <Image
+              src="/src/tudar.png"
+              alt="Tudar"
+              width={120}
+              height={100}
+            ></Image>
           </span>
         </a>
         {/* <p className="text-bold text-3xl m-4">Tudar</p> */}
         <div className="flex items-center justify-center w-screen ">
           <ul
             className="md:flex  md:justify-center md:flex-row min-w-screen flex-col hidden text-sm gap-10 margin-auto navlist"
-            id="navlist">
+            id="navlist"
+          >
             {NavLinks.map((link) => (
-              <Link
-                className="alink"
-                href={link.href}
-                key={link.key}>
+              <Link className="alink" href={link.href} key={link.key}>
                 {link.text}
               </Link>
             ))}
@@ -57,7 +60,8 @@ const Navbar = () => {
         <div
           className="md:hidden flex  w-10 h float-right m-0 hamburger p-1"
           id="hamburger"
-          onClick={handleClick}>
+          onClick={handleClick}
+        >
           <div className="bar-hamburger"></div>
           <div className="bar-hamburger"></div>
           <div className="bar-hamburger"></div>

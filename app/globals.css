@@ -6,11 +6,9 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
-  
-  
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
@@ -26,34 +24,25 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-    
-}
-
+} */
 
 html {
   height: 100%;
-  background: radial-gradient(ellipse at bottom, #090b0d 0%, #0b0c12 100%);
+  /* background: radial-gradient(ellipse at bottom, #090b0d 0%, #0b0c12 100%); */
   overflow-x: hidden;
   margin: 0;
   padding: 0;
-  
 }
 
-
 html::-webkit-scrollbar {
-  width: 10px; 
+  width: 10px;
 }
 
 html::-webkit-scrollbar-track {
-background-color: black;
+  background-color: black;
 }
 
 html::-webkit-scrollbar-thumb {
-background: #4e4e4e;
-border-radius: 25px;
+  background: #4e4e4e;
+  border-radius: 25px;
 }
-
-
-
-
-
