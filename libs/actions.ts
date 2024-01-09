@@ -1,5 +1,5 @@
 import { GraphQLClient } from "graphql-request";
-import { getUserQuery } from "./graphql";
+import { getUserQuery } from "../graphql";
 // import {
 //   deleteProjectMutation,
 //   getProjectByIdQuery,
@@ -12,11 +12,11 @@ import { getUserQuery } from "./graphql";
 // import { ProjectForm, ProfileForm } from "@/common.types";
 // import { createProjectMutation } from "../graphql";
 // import ProfileForm from "@/app/components/ProfileForm";
-import { PostDetails } from "./graphql";
-import { createPostMutation } from "./graphql";
-import { postsQuery } from "./graphql";
-import { createUserMutation } from "./graphql";
-import { PostDeleteById } from "./graphql";
+import { PostDetails } from "../graphql";
+import { createPostMutation } from "../graphql";
+import { postsQuery } from "../graphql";
+import { createUserMutation } from "../graphql";
+import { PostDeleteById } from "../graphql";
 import { PostForm, SessionInterface } from "@/common.types";
 const isProduction = process.env.NODE_ENV === "production";
 const apiUrl = isProduction

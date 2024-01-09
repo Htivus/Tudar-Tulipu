@@ -12,7 +12,7 @@ extend schema
 type User @model @auth(rules: [{ allow: public, operations: [read] }]) {
   name: String! @length(min: 2, max: 20)
   email: String! @unique
-  avatarUrl: URL!
+  avatarUrl: String!
   performs: Perform
   posts: Post
 }
