@@ -22,17 +22,21 @@ const page = async () => {
   return (
     <div>
       <div className="flex h-screen items-center justify-center gap-20 m-5 flex-wrap">
-        {posts.map(({ node }: { node: PostInterface }) => (
-          <Post
-            id={node.id || ""}
-            title={node.title || ""}
-            description={node.description || ""}
-            image={node.image || ""}
-            user={node.createdBy.name || ""}
-            avatarUrl={node.createdBy.avatarUrl || ""}
-            date={node.date || ""}
-          />
-        ))}
+        {posts.length == 0 ? (
+          <h1 className="flex justify-center items-center">No posts yet</h1>
+        ) : (
+          posts.map(({ node }: { node: PostInterface }) => (
+            <Post
+              id={node.id || ""}
+              title={node.title || ""}
+              description={node.description || ""}
+              image={node.image || ""}
+              user={node.createdBy.name || ""}
+              avatarUrl={node.createdBy.avatarUrl || ""}
+              date={node.date || ""}
+            />
+          ))
+        )}
       </div>
 
       {session && (
