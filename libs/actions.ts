@@ -19,7 +19,7 @@ import { createUserMutation } from "../graphql";
 import { PostDeleteById } from "../graphql";
 import { PostForm, SessionInterface } from "@/common.types";
 const isProduction = process.env.NODE_ENV === "production";
-const apiUrl = "https://tudar-master-amith-jagannath.grafbase.app/graphql";
+const apiUrl = "http://127.0.0.1:4000/graphql";
 const apiKey = isProduction
   ? process.env.NEXT_PUBLIC_GRAFBASE_API_KEY || ""
   : "letmein";
