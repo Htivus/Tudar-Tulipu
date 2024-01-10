@@ -35,7 +35,7 @@ export interface PostInterface {
   date: string;
   reference: string;
   id: string;
-  createdBy: {
+  created: {
     name: string;
     email: string;
     avatarUrl: string;

@@ -10,7 +10,7 @@ interface PostInterface {
   description: string;
   image: string;
   date: string;
-  createdBy: {
+  created: {
     id: string;
   };
 }
@@ -20,7 +20,7 @@ const page = async ({ params: { id } }: { params: { id: string } }) => {
   };
   const session = await getCurrentUser();
 
-  console.log(result?.post?.createdBy.id);
+  console.log(result?.post?.created.id);
 
   return (
     <Modal>
@@ -43,7 +43,7 @@ const page = async ({ params: { id } }: { params: { id: string } }) => {
             </p>
             {!session
               ? " "
-              : result?.post?.createdBy.id == session.user.id && (
+              : result?.post?.created.id == session.user.id && (
                   <div className="flex justify-end mt-4 ">
                     <DeleteButton id={id} />
                   </div>

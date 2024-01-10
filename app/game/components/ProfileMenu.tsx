@@ -20,7 +20,7 @@ const ProfileMenu = ({ session }: { session: SessionInterface }) => {
         >
           {session?.user?.avatarUrl && (
             <Image
-              src={session.user.avatarUrl}
+              src={session?.user?.image || ""}
               width={40}
               height={40}
               className="rounded-full"

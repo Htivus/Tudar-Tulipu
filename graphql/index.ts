@@ -33,7 +33,7 @@ export const createPostMutation = `
 			date
 			image
 			reference
-			createdBy {
+			created {
 				email
 				name
 			}
@@ -51,7 +51,7 @@ query PostCollection {
 		  title
 		  description
 		  date
-		  createdBy {
+		  created{
 			email
 			name
 			avatarUrl
@@ -71,7 +71,7 @@ query Post($id:ID!) {
 	  description
 	  image
 	  date
-	  createdBy {
+	  created {
 		name
 		email
 		avatarUrl

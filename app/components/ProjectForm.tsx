@@ -74,6 +74,7 @@ const ProjectForm = ({ type, session, project }: Props) => {
     try {
       const { token } = await fetchToken();
       console.log(token);
+      console.log(form);
       await createPost(form, session?.user?.id, token);
       setSubmitting(false);
       router.push("/Blogs");

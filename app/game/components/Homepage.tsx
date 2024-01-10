@@ -4,12 +4,10 @@ import Link from "next/link";
 import AuthProviders from "./AuthProviders";
 import { getCurrentUser } from "@/libs/session";
 import ProfileMenu from "./ProfileMenu";
-const NavLinks = [
-  { href: "/", key: "Play", text: "Play" },
-  
-];
+const NavLinks = [{ href: "/", key: "Play", text: "Play" }];
 const Homepage: React.FC = async () => {
   const session = await getCurrentUser();
+  console.log("YES");
   console.log(session);
   return (
     <div className="h-screen w-full  bg-blue-100 m-0">
@@ -31,8 +29,19 @@ const Homepage: React.FC = async () => {
           <div className="flexCenter">
             {session?.user ? "" : <AuthProviders />}
           </div>
-          {session?.user ? <Button variant="primary"><Link className="font-extrabold alink" href="/game/play" key="Play">Play
-            </Link></Button> : ""}
+          {session?.user ? (
+            <Button variant="primary">
+              <Link
+                className="font-extrabold alink"
+                href="/game/play"
+                key="Play"
+              >
+                Play
+              </Link>
+            </Button>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </div>

@@ -31,8 +31,8 @@ const page = async () => {
               title={node.title || ""}
               description={node.description || ""}
               image={node.image || ""}
-              user={node.createdBy.name || ""}
-              avatarUrl={node.createdBy.avatarUrl || ""}
+              user={node.created.name || ""}
+              avatarUrl={node.created.avatarUrl || ""}
               date={node.date || ""}
             />
           ))

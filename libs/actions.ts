@@ -19,9 +19,7 @@ import { createUserMutation } from "../graphql";
 import { PostDeleteById } from "../graphql";
 import { PostForm, SessionInterface } from "@/common.types";
 const isProduction = process.env.NODE_ENV === "production";
-const apiUrl = isProduction
-  ? process.env.NEXT_PUBLIC_GRAFBASE_API_URL || ""
-  : "http://127.0.0.1:4000/graphql";
+const apiUrl = "https://tudar-master-amith-jagannath.grafbase.app/graphql";
 const apiKey = isProduction
   ? process.env.NEXT_PUBLIC_GRAFBASE_API_KEY || ""
   : "letmein";
@@ -80,6 +78,7 @@ export const createPost = async (
   token: string
 ) => {
   console.log(form);
+  console.log(creatorId);
   const imageUrl = await uploadImage(form.image);
   client.setHeader("Authorization", `Bearer ${token}`);
   console.log(imageUrl);
@@ -88,11 +87,12 @@ export const createPost = async (
       input: {
         ...form,
         image: imageUrl.url,
-        createdBy: {
+        created: {
           link: creatorId,
         },
       },
     };
+    console.log(form);
     return makeGraphQLRequest(createPostMutation, variables);
   }
 };

@@ -1,40 +1,52 @@
-import { g, config } from '@grafbase/sdk'
+import { g, auth, config } from "@grafbase/sdk";
+//@ts-ignore
+const User = g
+  .model("User", {
+    name: g.string().length({ min: 2, max: 20 }),
+    email: g.string().unique(),
+    avatarUrl: g.url(),
+    performs: g.relation((): any => Perform).optional(),
+    posts: g.relation((): any => Post).optional(),
+  })
+  .auth((rules) => {
+    rules.public().read();
+  });
+//@ts-ignore
+const Perform = g
+  .model("Perform", {
+    score: g.int(),
+    level: g.int(),
+    streak: g.int(),
+    createdBy: g.relation(() => User),
+  })
+  .auth((rules) => {
+    rules.public().read();
+    rules.private().create().delete().update();
+  });
 
-// Welcome to Grafbase!
-//
-// Configure authentication, data sources, resolvers and caching for your GraphQL API.
+const Post = g
+  .model("Post", {
+    title: g.string(),
+    description: g.string(),
+    image: g.string(),
+    date: g.string(),
+    reference: g.string(),
+    created: g.relation(() => User),
+  })
+  .auth((rules) => {
+    rules.public().read();
+    rules.private().create().delete().update();
+  });
 
-// Data Sources - https://grafbase.com/docs/connectors
-//
-// const pg = connector.Postgres('pg', { url: g.env('DATABASE_URL') })
-// g.datasource(pg)
-
-// Resolvers - https://grafbase.com/docs/resolvers
-//
-// g.query('helloWorld', {
-//   returns: g.string(),
-//   resolver: 'hello-world',
-// })
+const jwt = auth.JWT({
+  issuer: "grafbase",
+  secret: process.env.NEXTAUTH_SECRET!,
+});
 
 export default config({
   schema: g,
-  // Authentication - https://grafbase.com/docs/auth
   auth: {
-    // OpenID Connect
-    // const oidc = auth.OpenIDConnect({ issuer: g.env('OIDC_ISSUER_URL') })
-    // providers: [oidc],
-    rules: (rules) => {
-      rules.public()
-    },
+    providers: [jwt],
+    rules: (rules) => rules.private(),
   },
-  // Caching - https://grafbase.com/docs/graphql-edge-caching
-  // cache: {
-  //   rules: [
-  //     {
-  //       types: ['Query'], // Cache everything for 60 seconds
-  //       maxAge: 60,
-  //       staleWhileRevalidate: 60
-  //     }
-  //   ]
-  // }
-})
+});
