@@ -54,6 +54,9 @@ html::-webkit-scrollbar-thumb {
 background: #4e4e4e;
 border-radius: 25px;
 }
+.cursor-styles{
+  width: 100vh;
+}
 
 
 

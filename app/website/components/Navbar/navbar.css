@@ -8,6 +8,15 @@ backdrop-filter: blur(6.7px);
 -webkit-backdrop-filter: blur(6.7px);
 border: 1px solid rgba(255, 255, 255, 0.3);
 }
+.navbar-bg-menu{
+    /* From https://css.glass */
+background: rgba(59, 59, 59, 0.829); 
+background-color: #afa18f;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10.7px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+}
 .linkSpan{
     font-size: 20px;
     font-weight: 900;
@@ -17,7 +26,7 @@ border: 1px solid rgba(255, 255, 255, 0.3);
     font-size: 1.00rem ;
     line-height: 1.8;
     letter-spacing: 0.02rem;
-    font-family: 'Tilt Warp', sans-serif;
+    /* font-family: 'Tilt Warp', sans-serif; */
     text-transform: uppercase;
     position: relative;
 }
@@ -52,11 +61,10 @@ border: 1px solid rgba(255, 255, 255, 0.3);
     -ms-transition: width 0.5s;
     -o-transition: width 0.5s;
     transition: width 0.5s;
-        transition-duration: 1s; 
+    transition-duration: 0.5s; 
 
 }    
 #menu{
-    transition: all 2s ease-in;
     display: none;
 }
 #menu-container{
